@@ -1,5 +1,5 @@
 # Packages
-# devtools::install_github("DataWookie/feedeR")
+# remotes::install_github("DataWookie/feedeR")
 library(feedeR)
 library(bigrquery)
 library(DBI)
