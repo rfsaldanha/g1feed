@@ -5,7 +5,7 @@ library(bigrquery)
 library(DBI)
 
 # Bigquery auth
-bigrquery::bq_auth(path = "g1feed-135d76612977.json")
+bigrquery::bq_auth(path = "g1feed/g1feed-135d76612977.json", use_oob = TRUE)
 
 # Connection
 con <- dbConnect(
@@ -20,7 +20,7 @@ new_feed <- feedeR::feed.extract(url = "https://g1.globo.com/dynamo/rss2.xml")
 new_feed <- new_feed$items
 
 # Retrive last feed
-last_feed <- readRDS(file = "last_feed.rds")
+last_feed <- readRDS(file = "g1feed/last_feed.rds")
 
 # Select new feed
 updated_feed <- subset(new_feed, !(hash %in% last_feed$hash))
