@@ -26,7 +26,7 @@ last_feed <- readRDS(file = "g1feed/last_feed.rds")
 updated_feed <- subset(new_feed, !(hash %in% last_feed$hash))
 
 # Save current feed as last one
-saveRDS(object = new_feed, file = "last_feed.rds")
+saveRDS(object = new_feed, file = "g1feed/last_feed.rds")
 
 # Write new results
 if(nrow(updated_feed) > 0){
